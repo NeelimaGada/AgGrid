@@ -1,0 +1,31 @@
+<div class="conatiner">
+    <div class="row">
+        <div class="col-6">
+            <input type="search" class="form-control ml-5 my-3" placeholder="Search by Title" [(ngModel)]="SearchText">
+            <ag-grid-angular style="width: 750px; height: 600px; border:1px solid" class="ag-theme-balham ml-5"
+                [rowData]="rowData|pipe:SearchText" (rowClicked)='onRowClicked($event)' data-toggle="modal"
+                data-target="#myModal" [columnDefs]="columnDefs">
+            </ag-grid-angular>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="wrap"> {{ Data1 | json }}</div>
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
